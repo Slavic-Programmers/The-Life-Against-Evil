@@ -18,13 +18,22 @@ class Game:
     
     
     def run(self) -> None:
+        pygame.mouse.set_visible(False)
+        cursor_image = pygame.transform.scale(pygame.image.load('./graphics/cursor/grabbing.png').convert_alpha(), (50, 50))
+        cursor_image_rect = cursor_image.get_rect()
+        
         while True:
             for event in pygame.event.get():
                 if pygame.QUIT == event.type:
                     pygame.quit()
                     sys.exit()
                 
+            self.screen.fill('black')
+            
             self.__render_player_inventory()
+            
+            cursor_image_rect.center = pygame.mouse.get_pos()
+            self.screen.blit(cursor_image, cursor_image_rect)
             
             pygame.display.update()
             self.clock.tick(FPS)
