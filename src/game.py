@@ -18,7 +18,7 @@ class Game:
     
     
     def run(self) -> None:
-        self.background = pygame.transform.scale(pygame.image.load('./graphics/background/background.png'))
+        self.background = pygame.transform.scale(pygame.image.load('./graphics/background/background.png'), (WIDTH, HEIGHT))
         pygame.mouse.set_visible(False)
         cursor_image = pygame.transform.scale(pygame.image.load('./graphics/cursor/grabbing.png').convert_alpha(), (50, 50))
         cursor_image_rect = cursor_image.get_rect()
