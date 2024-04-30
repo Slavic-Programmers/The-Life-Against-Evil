@@ -18,6 +18,7 @@ class Game:
     
     
     def run(self) -> None:
+        self.background = pygame.transform.scale(pygame.image.load('./graphics/background/background.png'))
         pygame.mouse.set_visible(False)
         cursor_image = pygame.transform.scale(pygame.image.load('./graphics/cursor/grabbing.png').convert_alpha(), (50, 50))
         cursor_image_rect = cursor_image.get_rect()
@@ -28,7 +29,7 @@ class Game:
                     pygame.quit()
                     sys.exit()
                 
-            self.screen.fill('black')
+            self.screen.blit(self.background, (0, 0))
             
             self.__render_player_inventory()
             
