@@ -1,3 +1,5 @@
+from game import Game
+
 def main() -> None:
     print("Welcome to the game!")
 
