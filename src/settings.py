@@ -12,3 +12,8 @@ BITS_PER_PIXEL: int = 16
 PISTOL: str = 'pistol'
 
 # ================== #
+
+# ===== Colours ==== #
+WHITE: str = 'white'
+RED: str = 'red'
+# ================== #
