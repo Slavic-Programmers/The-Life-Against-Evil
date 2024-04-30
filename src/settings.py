@@ -16,4 +16,5 @@ PISTOL: str = 'pistol'
 # ===== Colours ==== #
 WHITE: str = 'white'
 RED: str = 'red'
+ORANGE: str = 'orange'
 # ================== #

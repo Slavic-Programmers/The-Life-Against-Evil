@@ -33,9 +33,9 @@ class Game:
     def __render_player_inventory(self) -> None:
         text_surface = self.font.render(f"DAY: {self.day}", True, WHITE)
         self.screen.blit(text_surface, (10, 10))
-        food_color = WHITE if self.player.food > 3 else RED
+        food_color = WHITE if self.player.food > 5 else (ORANGE if 3 <= self.player.food <= 5 else RED)
         text_surface = self.font.render(f"FOOD: {self.player.food}", True, food_color)
         self.screen.blit(text_surface, (10, 50))
-        water_color = WHITE if self.player.water > 3 else RED
+        water_color = WHITE if self.player.water > 5 else (ORANGE if 3 <= self.player.food <= 5 else RED)
         text_surface = self.font.render(f"WATER: {self.player.water}", True, water_color)
         self.screen.blit(text_surface, (10, 90))
