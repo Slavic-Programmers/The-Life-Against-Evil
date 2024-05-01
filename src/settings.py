@@ -18,3 +18,7 @@ WHITE: str = 'white'
 RED: str = 'red'
 ORANGE: str = 'orange'
 # ================== #
+
+# == Useful Chars == #
+SLASH: str = '/'
+# ================== #
