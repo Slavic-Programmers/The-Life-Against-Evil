@@ -35,11 +35,11 @@ class Game:
             self.screen.blit(self.background, (0, 0))
             
             self.__render_player_inventory()
-            
+        
+            self.level.run()
+        
             cursor_image_rect.center = pygame.mouse.get_pos()
             self.screen.blit(cursor_image, cursor_image_rect)
-            
-            self.level.run()
             
             pygame.display.update()
             self.clock.tick(FPS)
