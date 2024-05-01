@@ -1,7 +1,9 @@
 import pygame
 import sys
 from settings import *
+from level import Level
 from player import Player
+from zombie import Zombie
 
 class Game:
     def __init__(self) -> None:
@@ -9,13 +11,14 @@ class Game:
         pygame.init()
         pygame.font.init()
         self.font = pygame.font.SysFont('Arial', 24)
-
+        
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT), FLAGS, BITS_PER_PIXEL)
         pygame.display.set_caption('The Life Against Evil')
         self.clock = pygame.time.Clock()
-        
-        self.day = 1
     
+        self.level = Level()
+
+        self.day = 1    
     
     def run(self) -> None:
         self.background = pygame.transform.scale(pygame.image.load('./graphics/background/background.png'), (WIDTH, HEIGHT))
@@ -35,6 +38,8 @@ class Game:
             
             cursor_image_rect.center = pygame.mouse.get_pos()
             self.screen.blit(cursor_image, cursor_image_rect)
+            
+            self.level.run()
             
             pygame.display.update()
             self.clock.tick(FPS)

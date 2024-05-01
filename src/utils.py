@@ -10,7 +10,7 @@ def import_folder(path: str) -> list:
     for file_name in file_names:
         full_path = path + SLASH + file_name
         print(full_path)
-        image_surface = pygame.image.load(full_path).convert_alpha()
+        image_surface = pygame.transform.scale(pygame.image.load(full_path).convert_alpha(), (200, 200))
         surfaces_list.append(image_surface)
 
     return surfaces_list
