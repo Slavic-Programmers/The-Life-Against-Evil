@@ -26,6 +26,9 @@ class Game:
         cursor_image = pygame.transform.scale(pygame.image.load('./graphics/cursor/grabbing.png').convert_alpha(), (50, 50))
         cursor_image_rect = cursor_image.get_rect()
         
+        self.inventory_button = pygame.transform.scale(pygame.image.load('./graphics/icons/inventory.png'), (100, 100))
+        self.inventory_button_rect = self.inventory_button.get_rect(center=(720, 100))
+        
         while True:
             for event in pygame.event.get():
                 if pygame.QUIT == event.type:
@@ -37,6 +40,8 @@ class Game:
             self.__render_player_inventory()
         
             self.level.run()
+            
+            self.screen.blit(self.inventory_button, self.inventory_button_rect)
         
             cursor_image_rect.center = pygame.mouse.get_pos()
             self.screen.blit(cursor_image, cursor_image_rect)
