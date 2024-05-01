@@ -20,6 +20,7 @@ class Game:
 
         self.day = 1    
     
+    
     def run(self) -> None:
         self.background = pygame.transform.scale(pygame.image.load('./graphics/background/background.png'), (WIDTH, HEIGHT))
         pygame.mouse.set_visible(False)
@@ -28,6 +29,9 @@ class Game:
         
         self.inventory_button = pygame.transform.scale(pygame.image.load('./graphics/icons/inventory.png'), (100, 100))
         self.inventory_button_rect = self.inventory_button.get_rect(center=(720, 100))
+        
+        self.crafting_button = pygame.transform.scale(pygame.image.load('./graphics/icons/crafting.png'), (100, 100))
+        self.crafting_button_rect = self.inventory_button.get_rect(center=(720, 220))
         
         while True:
             for event in pygame.event.get():
@@ -42,6 +46,7 @@ class Game:
             self.level.run()
             
             self.screen.blit(self.inventory_button, self.inventory_button_rect)
+            self.screen.blit(self.crafting_button, self.crafting_button_rect)
         
             cursor_image_rect.center = pygame.mouse.get_pos()
             self.screen.blit(cursor_image, cursor_image_rect)
