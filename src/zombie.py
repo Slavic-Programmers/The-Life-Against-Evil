@@ -7,6 +7,7 @@ class Zombie(pygame.sprite.Sprite):
         super().__init__(groups)
         
         self.hp = 1
+        self.speed = 0.5
 
         self.animations = {
             "walk" : [],
@@ -25,6 +26,11 @@ class Zombie(pygame.sprite.Sprite):
         self.hitbox = self.rect.inflate(-10, -20)        
         
     
+    def move(self) -> None:
+        self.hitbox.x += self.speed
+        self.rect.center = self.hitbox.center
+    
+    
     def animate(self) -> None:
         animation = self.animations[self.status]
 
@@ -40,3 +46,4 @@ class Zombie(pygame.sprite.Sprite):
     
     def update(self) -> None:
         self.animate()
+        self.move()
